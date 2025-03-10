@@ -1,0 +1,50 @@
+<div
+class="modal fade"
+id="editItemModal{{ inventory_item.id }}"
+tabindex="-1"
+aria-labelledby="editItemModalLabel{{ inventory_item.id }}"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-dark" id="editItemModalLabel{{ inventory_item.id }}">
+        Edit Inventory Item
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form action="/edit/{{ inventory_item.id }}" method="POST">
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">Name</label>
+          <input type="text" name="name" class="form-control" value="{{ inventory_item.name }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">Price</label>
+          <input type="number" name="price" class="form-control" value="{{ inventory_item.price }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">MAC Address</label>
+          <input type="text" name="mac_address" class="form-control" value="{{ inventory_item.mac_address }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">Serial Number</label>
+          <input type="text" name="serial_number" class="form-control" value="{{ inventory_item.serial_number }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">Manufacturer</label>
+          <input type="text" name="manufacturer" class="form-control" value="{{ inventory_item.manufacturer }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold text-dark">Description</label>
+          <textarea name="description" class="form-control" required>{{ inventory_item.description }}</textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
