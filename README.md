@@ -6,7 +6,7 @@ This test assesses a candidate's proficiency in developing a basic web applicati
 
 To get started with PlateToGrow Backend, follow these steps:
 
-### 1. Install XAMPP (for MySQL Database)
+### 1. Install XAMPP (for MySQL Database only if don't want to use Docker container)
 
 If you don't have MySQL installed, you can use XAMPP, a popular package that includes MySQL, Apache, and PHP. Follow these steps to install XAMPP:
 
