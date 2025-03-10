@@ -1,0 +1,54 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h2>Inventory Items</h2>
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addItemModal"
+  >
+    Add Inventory Item
+  </button>
+</div>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>MAC Address</th>
+      <th>Serial Number</th>
+      <th>Manufacturer</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for inventory_item in all_inventory_items %}
+    <tr>
+      <td>{{ inventory_item.name }}</td>
+      <td>{{ inventory_item.price }}</td>
+      <td>{{ inventory_item.mac_address }}</td>
+      <td>{{ inventory_item.serial_number }}</td>
+      <td>{{ inventory_item.manufacturer }}</td>
+      <td>{{ inventory_item.description }}</td>
+      <td>
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#editItemModal{{ inventory_item.id }}"
+        >
+          Edit Inventory Item
+        </button>
+        <a
+          href="{{ url_for('inventory_items.delete_one', id=inventory_item.id) }}"
+          class="btn btn-danger btn-sm"
+          >Delete</a
+        >
+      </td>
+    </tr>
+
+    {% include "modals/editInventoryItem.html" %} {% endfor %}
+  </tbody>
+</table>
+
+{% include "modals/addInventoryItem.html" %} {% endblock %}
