@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect
+from flask import Blueprint, request, render_template, redirect, flash
 from app.models.models import InventoryItem, db
 
 inventory_items = Blueprint("inventory_items", __name__)
@@ -27,6 +27,8 @@ def create_one(session=db.session):
     )
     session.add(new_inventory_item)
     session.commit()
+
+    flash("Inventory Item was created successfully")
     return redirect("/")
 
 
@@ -43,6 +45,8 @@ def update_one(session=db.session, id: int = 0):
         session.add(inventory_item)
         session.commit()
         session.refresh(inventory_item)
+        flash("Inventory Item was updated successfully")
+
         return redirect("/")
 
     return render_template("test2.html", inventory_item=inventory_item)
@@ -52,7 +56,9 @@ def update_one(session=db.session, id: int = 0):
 def delete_one(session=db.session, id: int = 0):
     inventory_item = InventoryItem.query.get(id)
     if not inventory_item:
-        return "Not found by id " + id
+        return flash("Inventory Item not found by id: " + id)
     session.delete(inventory_item)
     session.commit()
+    flash("Inventory Item was deleted successfully")
+
     return redirect("/")
