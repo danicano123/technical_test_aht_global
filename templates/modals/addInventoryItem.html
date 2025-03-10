@@ -1,0 +1,42 @@
+<div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="addItemModalLabel">Add Inventory Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/add" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold text-dark">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label fw-bold text-dark">Price</label>
+                        <input type="number" id="price" name="price" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mac_address" class="form-label fw-bold text-dark">MAC Address</label>
+                        <input type="text" id="mac_address" name="mac_address" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="serial_number" class="form-label fw-bold text-dark">Serial Number</label>
+                        <input type="text" id="serial_number" name="serial_number" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="manufacturer" class="form-label fw-bold text-dark">Manufacturer</label>
+                        <input type="text" id="manufacturer" name="manufacturer" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label fw-bold text-dark">Description</label>
+                        <textarea id="description" name="description" class="form-control" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
